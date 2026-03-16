@@ -1,9 +1,8 @@
 #Ahora se utilizara render
-from django.shortcuts import render
-#Se importa HttpResponse
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 #Importación de modelo producto
 from .models import Producto
+from .forms import ProductoForm
 
 # Create your views here.
 
@@ -17,3 +16,14 @@ def inicio(request):
 def lista_productos(request):
     productos = Producto.objects.all()
     return render(request, 'webapp/productos.html', {'productos': productos})
+
+def crear_producto(request):
+    if request.method == 'POST':
+        form = ProductoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('productos')
+    else:
+        form = ProductoForm()
+
+    return render(request, 'webapp/crear_producto.html', {'form': form})

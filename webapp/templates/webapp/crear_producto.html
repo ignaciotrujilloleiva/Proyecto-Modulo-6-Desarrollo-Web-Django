@@ -1,0 +1,13 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}Nuevo Producto | Alke Web Base{% endblock %}
+
+{% block content %}
+    <h2>Registrar nuevo producto</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar producto</button>
+    </form>
+{% endblock %}
