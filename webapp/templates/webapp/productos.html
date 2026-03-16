@@ -1,0 +1,23 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}Productos | Alke Web Base{% endblock %}
+
+{% block content %}
+    <h2>Lista de Productos</h2>
+
+    {% if productos %}
+        <ul>
+            {% for producto in productos %}
+                <li>
+                    <strong>{{ producto.nombre }}</strong><br>
+                    {{ producto.descripcion }}<br>
+                    Precio: ${{ producto.precio }}<br>
+                    Stock: {{ producto.stock }}
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay productos registrados.</p>
+    {% endif %}
+{% endblock %}
