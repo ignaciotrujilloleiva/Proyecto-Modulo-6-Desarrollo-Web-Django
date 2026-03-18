@@ -1,5 +1,7 @@
 #Ahora se utilizara render
 from django.shortcuts import render, redirect
+#Importación del decorador login_requiered para proteger la vista dashboard
+from django.contrib.auth.decorators import login_required
 #Importación de modelo producto
 from .models import Producto
 from .forms import ProductoForm
@@ -27,3 +29,8 @@ def crear_producto(request):
         form = ProductoForm()
 
     return render(request, 'webapp/crear_producto.html', {'form': form})
+
+#ruta protegida, necesita el usuario estar logueado
+@login_required
+def dashboard_view(request):
+    return render(request, 'webapp/dashboard.html')

@@ -36,7 +36,8 @@ h2 {
     color: #1f4e79;
 }
 
-form {
+/* Aplicar estos estilos solo a formularios dentro de main */
+main form {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -44,7 +45,7 @@ form {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-form p {
+main form p {
     margin-bottom: 15px;
 }
 
@@ -66,4 +67,31 @@ input, textarea {
     padding: 8px;
     margin-top: 4px;
     box-sizing: border-box;
+}
+
+/* Estilos específicos del formulario logout */
+nav .logout-form {
+    display: inline;
+    background: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    max-width: none;
+}
+
+nav .logout-form button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 16px;
+    padding: 0;
+}
+
+nav .logout-form button:hover {
+    text-decoration: underline;
+    background: none;
 }
